@@ -1,0 +1,8 @@
+To install this library, just copy the contents of "include" and "lib" folders to your PSP environment
+path (PSPSDK environment variable).
+
+Example: if PSPSDK points to C:\devkitPro\devkitPSP\psp\sdk, then you have to copy (updating if 
+it is necessary), "include" and "lib" folders to the "sdk" one.
+
+Once you did it, you can compile examples just to see how the lib works, although you can start 
+your own project. You can pick up the "Examples/Template" folder as a template to start it.

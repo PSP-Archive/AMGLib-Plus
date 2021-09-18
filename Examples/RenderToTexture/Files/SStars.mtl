@@ -1,0 +1,12 @@
+# Blender MTL File: 'untitled.blend'
+# Material Count: 1
+
+newmtl Materia2
+Ns 84.313725
+Ka 0.000000 0.000000 0.000000
+Kd 0.041675 0.041675 0.041675
+Ks 0.281771 0.281771 0.281771
+Ni 1.000000
+d 1.000000
+illum 2
+map_Kd SStars.png

@@ -1,0 +1,8 @@
+Para instalar la librería, basta con copiar los contenidos de las carpetas "include"
+y "lib" a la ruta donde tiene instalado el entorno de programación PSP (variable de entorno PSPSDK).
+
+Ejemplo: si la variable de entorno PSPSDK es C:\devkitPro\devkitPSP\psp\sdk, entonces hay que copiar
+(sobreescribiendo si es necesario), la carpeta "include" y "lib" a la carpeta "sdk".
+
+Una vez hecho este paso, puedes compilar los ejemplos para ver la librería en acción o incluso
+comenzar tu propio proyecto, teniendo la carpeta "Examples/Template" como plantilla para comenzarlo.

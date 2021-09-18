@@ -1,0 +1,73 @@
+V1.2 ALPHA  |
+-------------
+
+- Ahora está disponible una documentación en inglés
+- Ahora la librería puede compilarse tanto en C como en C++
+- La librería es combinable con OSLib (recompilar la librería y descomentar el AMG_COMPAT_OSLIB en AMG_Config.h)
+- Corregida función AMG_EnableTexture(), daba errores al tratar con texturas animadas
+- Añadidas funciones AMG_ChangeTexturePixel() y AMG_GetTexturePixel() para modificar los datos de una textura
+- Ahora las sombras pueden estar sobre cualquier plano (añadida función AMG_PlaneEquation()), ejemplo mejorado
+- Corregidos fallos menores
+- Se ha añadido la función AMG_MessageBox(), para mostrar mensajes estilo PSP
+- Añadido parámetro a la función AMG_Init3D(): AMG_DOUBLE_BUFFER y AMG_SCREEN_DIMENSIONS
+- Añadido paArámetro AMG_Light::Component, para especificar que componentes lumínicos se tendrán en cuenta
+- Eliminadas funciones para SkyBoxes, debido a su gran cantidad de bugs, así que la cámara ha sido arreglada
+- Añadida variable global AMG.TextureQuality, para especificar la calidad de las texturas al cargarlas
+- Añadida variable global AMG.DebugMode, para cambiar el modo de errores (AMG_ERRORMSG o AMG_ERRORCODE)
+- Ahora las variables globales están empaquetadas en la estructura AMG, e.g. AMG_TextureDest = AMG.TextureDest etc.
+- Ahora puedes cargar archivos JPG como texturas
+- Ahora puedes activar/desactivar Antialiasing con AMG_SetAntialias()
+- BULLET actualizado a la versión 2.82
+- Optimizado el uso de VFPU, se quita la librería PSPGUM y se añaden funciones de la librería PSPMATH
+- Añadida variable AMG.WaitVblank, para esperar o no al VBlank
+- Corregida función AMG_Printf(), ahora soporta '\n'
+- Añadida función AMG_Config3D(), para cambiar el tamaño de la "display list" y del modo de renderizado
+- Ahora se usa LodePNG en vez de LibPNG, ocupa menos espacio y evita problemas de compatabilidad
+- Ahora los mapas de altura son soportados (solo dibujarlos y poner textura, no las físicas)
+- Ahora los Convex Hulls son soportados en el motor físico
+- Se ha mejorado el Cel-Shading (puedes cambiar el lightmap con AMG_SetLightmap())
+- Mejorada función AMG_RenderMirrorObject(), permitiendo el reflejo en todos los ejes
+- Añadida variable AMG.DrawnVertices, para saber el número de vértices dibujados
+- Añadida función AMG_DrawSpriteCache() para dibujar un sprite optimizando el uso del caché de texturas (no hay rotación/escalado)
+- Cambiados argumentos en las funciones AMG_LoadTexture(), AMG_CreateTexture(), AMG_LoadMP3(), AMG_InitCamera() y AMG_LoadModel()
+- Mejorada estabilidad en VRAM compartida
+- Añadidos más ejemplos
+- Cargador de modelos mejorado, ahora un objeto puede tener varios materiales
+- Añadida variable global AMG.TextureSwizzle, para hacer Swizzle o no a las texturas cargadas
+
+------------
+V1.1 FINAL  |
+-------------
+
+- Corregidos fallos menores en Modelos 3D y SkyBoxes (gracias a Mills por avisarme)
+- Añadido soporte para SpotLights
+- Corregido bug que impedía usar Alpha-Blending con iluminación
+- Añadido parámetro AMG_Object::Lighting, para decir si un objeto es afectado o no por la iluminación
+- Añadida función AMG_SetTextureMapping(), con la cual podemos crear Environment Maps
+- Añadida función AMG_SetObjectMultiTexture(), con la cual podemos hacer multitextura en objetos 3D
+  (aún no está perfeccionado del todo, es un Proof Of Concept)
+- Se ha mejorado la cámara, aunque se ha tenido que cambiar la función AMG_RenderSkybox(skybox, camera);
+- Añadida variable global "AMG_TextureDest", donde puedes especificar dónde se cargan las texturas de los
+  modelos 3D (AMG_TEX_RAM o AMG_TEX_VRAM)
+- Se han cambiado ligeramente los ejemplos
+- Añadidas funciónes AMG_ObjectConfPhysics(), para simplificar la configuración de un objeto en el motor físico,
+  AMG_SetObjectLinearVelocity(), para establecer la velocidad lineal de un cuerpo, y AMG_RayTracingTest(), para
+  simular líneas que colisionan con objetos 3D
+- Se ha mejorado el motor físico: Ahora soporta esferas, conos y cilindros. Puedes definir el punto de origen de un objeto 3D,
+  así que ya no hay que tener los objetos en el punto (0, 0, 0) para que las físicas y rotaciones funcionen. Se han añadido
+  las variables AMG_Object::Collision (para saber si colisiona con algún objeto) y AMG_Object::CollideWith (para saber
+  con qué objeto colisiona, el número que sostiene esta variable es el valor de la variable AMG_Object::bullet_id del
+  último objeto con el que colisiona
+- Se ha optimizado la gestión de VRAM y de RAM
+- Implementada rotación y escalado de Sprites 2D (variables AMG_Texture::Rot, AMG_Texture::ScaleX y AMG_Texture::ScaleY),
+  además de la función AMG_MirrorTextureY, para voltear en el eje Y una textura
+- Ahora los Sprites 2D permiten cualquier resolución (154x97, 208x21 etc)
+- Mejorada ligeramente la carga de modelos 3D (un material puede ser usado por varios objetos, ahora soporta transparencias)
+- Eliminadas las funciones AMG_EnableBlend() y AMG_DisableBlend(), puesto que siempre va a estar activado
+- Se ha añadido soporte para guardar y cargar partidas, pudiendo modificar todos sus elementos en la estructura AMG_Savedata
+- Ahora puedes renderizar en una textura, usando las funciones AMG_EnableRenderToTexture() y AMG_DisableRenderToTexture()
+- Ahora puedes crear texturas vacías con AMG_CreateTexture()
+- Añadido pequeño motor de audio, puedes reproducir archivos MP3 en streaming a máxima velocidad con el uso de MultiThreading
+- Añadidas variables AMG_ScreenWidth y AMG_ScreenHeight para cambiar la resolución de la pantalla (útil para conectar
+  la PSP a la TV)
+- Añadido ejemplo de Render To Texture, con varias escenas 3D (gracias a Mills por los modelos)
